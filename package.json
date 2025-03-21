@@ -1,0 +1,19 @@
+{
+  "name": "studious-engine-sdk",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.5.2",
+  "main": "index.ts",
+  "dependencies": {
+    "@bbsify-landed/trpc-openapi-gen": "github:bbsify-landed/trpc-openapi-gen#a904e5456070532a071be0ba937d58bd46d07dd4",
+    "@trpc/server": "11.0.0-rc.802",
+    "better-auth": "^1.2.4",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "typescript": "5.8.2"
+  }
+}
