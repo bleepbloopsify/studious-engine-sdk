@@ -1,3 +1,4 @@
+export declare const description: string;
 export declare const openapiDocument: import("@bbsify-landed/trpc-openapi-gen").OpenAPIObject;
 export declare const generateAuthOpenApiDocument: () => Promise<{
     openapi: string;

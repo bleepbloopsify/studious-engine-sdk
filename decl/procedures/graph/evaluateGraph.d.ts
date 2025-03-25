@@ -3,8 +3,8 @@ export declare const evaluateGraph: import("@trpc/server").TRPCQueryProcedure<{
         id: string;
     };
     output: {
-        name: string;
         id: string;
+        name: string;
     };
 }>;
 //# sourceMappingURL=evaluateGraph.d.ts.map

@@ -3,8 +3,8 @@ export declare const createGraph: import("@trpc/server").TRPCMutationProcedure<{
         name: string;
     };
     output: {
-        name: string;
         id: string;
+        name: string;
     };
 }>;
 //# sourceMappingURL=createGraph.d.ts.map

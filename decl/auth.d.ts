@@ -388,6 +388,15 @@ export declare function authFactory(database: Pool | AdapterInstance): {
                         createdAt: Date;
                         updatedAt: Date;
                         image?: string | null | undefined | undefined;
+                    } & {
+                        id: string;
+                        name: string;
+                        email: string;
+                        emailVerified: boolean;
+                        createdAt: Date;
+                        updatedAt: Date;
+                        image?: string | null | undefined | undefined;
+                        role: string;
                     };
                 } | null;
             } : {
@@ -409,6 +418,15 @@ export declare function authFactory(database: Pool | AdapterInstance): {
                     createdAt: Date;
                     updatedAt: Date;
                     image?: string | null | undefined | undefined;
+                } & {
+                    id: string;
+                    name: string;
+                    email: string;
+                    emailVerified: boolean;
+                    createdAt: Date;
+                    updatedAt: Date;
+                    image?: string | null | undefined | undefined;
+                    role: string;
                 };
             } | null>;
             options: {
@@ -526,7 +544,13 @@ export declare function authFactory(database: Pool | AdapterInstance): {
                     name: string;
                     email: string;
                     password: string;
-                };
+                } | ({
+                    name: string;
+                    email: string;
+                    password: string;
+                } & {} & {
+                    role?: string | null | undefined;
+                });
                 method?: "POST" | undefined;
                 query?: Record<string, any> | undefined;
                 params?: Record<string, any> | undefined;
@@ -597,7 +621,13 @@ export declare function authFactory(database: Pool | AdapterInstance): {
                             name: string;
                             email: string;
                             password: string;
-                        };
+                        } | ({
+                            name: string;
+                            email: string;
+                            password: string;
+                        } & {} & {
+                            role?: string | null | undefined;
+                        });
                     };
                     openapi: {
                         description: string;
@@ -1401,7 +1431,12 @@ export declare function authFactory(database: Pool | AdapterInstance): {
                 body: Partial<import("better-auth").Prettify<{
                     name?: string;
                     image?: string | null;
-                }>>;
+                } | ({} & {
+                    role?: string | null | undefined;
+                } & {
+                    name?: string;
+                    image?: string | null;
+                })>>;
                 method?: "POST" | undefined;
                 query?: Record<string, any> | undefined;
                 params?: Record<string, any> | undefined;
@@ -1462,7 +1497,12 @@ export declare function authFactory(database: Pool | AdapterInstance): {
                         body: Partial<import("better-auth").Prettify<{
                             name?: string;
                             image?: string | null;
-                        }>>;
+                        } | ({} & {
+                            role?: string | null | undefined;
+                        } & {
+                            name?: string;
+                            image?: string | null;
+                        })>>;
                     };
                     openapi: {
                         description: string;
@@ -2528,7 +2568,25 @@ export declare function authFactory(database: Pool | AdapterInstance): {
     options: {
         database: Pool | AdapterInstance;
         trustedOrigins: string[];
-        plugins: {
+        emailAndPassword: {
+            enabled: true;
+        };
+        plugins: ({
+            id: "adminPlugin";
+            schema: {
+                user: {
+                    fields: {
+                        role: {
+                            type: "string";
+                            required: true;
+                            unique: false;
+                            references: undefined;
+                            defaultValue: string;
+                        };
+                    };
+                };
+            };
+        } | {
             id: "open-api";
             endpoints: {
                 generateOpenAPISchema: {
@@ -2659,7 +2717,7 @@ export declare function authFactory(database: Pool | AdapterInstance): {
                     path: "/reference";
                 };
             };
-        }[];
+        })[];
         advanced: {
             cookiePrefix: string;
         };
@@ -2685,6 +2743,7 @@ export declare function authFactory(database: Pool | AdapterInstance): {
                 createdAt: Date;
                 updatedAt: Date;
                 image?: string | null | undefined | undefined;
+                role: string;
             };
         };
     };
@@ -3102,6 +3161,15 @@ export declare const auth: {
                         createdAt: Date;
                         updatedAt: Date;
                         image?: string | null | undefined | undefined;
+                    } & {
+                        id: string;
+                        name: string;
+                        email: string;
+                        emailVerified: boolean;
+                        createdAt: Date;
+                        updatedAt: Date;
+                        image?: string | null | undefined | undefined;
+                        role: string;
                     };
                 } | null;
             } : {
@@ -3123,6 +3191,15 @@ export declare const auth: {
                     createdAt: Date;
                     updatedAt: Date;
                     image?: string | null | undefined | undefined;
+                } & {
+                    id: string;
+                    name: string;
+                    email: string;
+                    emailVerified: boolean;
+                    createdAt: Date;
+                    updatedAt: Date;
+                    image?: string | null | undefined | undefined;
+                    role: string;
                 };
             } | null>;
             options: {
@@ -3240,7 +3317,13 @@ export declare const auth: {
                     name: string;
                     email: string;
                     password: string;
-                };
+                } | ({
+                    name: string;
+                    email: string;
+                    password: string;
+                } & {} & {
+                    role?: string | null | undefined;
+                });
                 method?: "POST" | undefined;
                 query?: Record<string, any> | undefined;
                 params?: Record<string, any> | undefined;
@@ -3311,7 +3394,13 @@ export declare const auth: {
                             name: string;
                             email: string;
                             password: string;
-                        };
+                        } | ({
+                            name: string;
+                            email: string;
+                            password: string;
+                        } & {} & {
+                            role?: string | null | undefined;
+                        });
                     };
                     openapi: {
                         description: string;
@@ -4115,7 +4204,12 @@ export declare const auth: {
                 body: Partial<import("better-auth").Prettify<{
                     name?: string;
                     image?: string | null;
-                }>>;
+                } | ({} & {
+                    role?: string | null | undefined;
+                } & {
+                    name?: string;
+                    image?: string | null;
+                })>>;
                 method?: "POST" | undefined;
                 query?: Record<string, any> | undefined;
                 params?: Record<string, any> | undefined;
@@ -4176,7 +4270,12 @@ export declare const auth: {
                         body: Partial<import("better-auth").Prettify<{
                             name?: string;
                             image?: string | null;
-                        }>>;
+                        } | ({} & {
+                            role?: string | null | undefined;
+                        } & {
+                            name?: string;
+                            image?: string | null;
+                        })>>;
                     };
                     openapi: {
                         description: string;
@@ -5242,7 +5341,25 @@ export declare const auth: {
     options: {
         database: Pool | AdapterInstance;
         trustedOrigins: string[];
-        plugins: {
+        emailAndPassword: {
+            enabled: true;
+        };
+        plugins: ({
+            id: "adminPlugin";
+            schema: {
+                user: {
+                    fields: {
+                        role: {
+                            type: "string";
+                            required: true;
+                            unique: false;
+                            references: undefined;
+                            defaultValue: string;
+                        };
+                    };
+                };
+            };
+        } | {
             id: "open-api";
             endpoints: {
                 generateOpenAPISchema: {
@@ -5373,7 +5490,7 @@ export declare const auth: {
                     path: "/reference";
                 };
             };
-        }[];
+        })[];
         advanced: {
             cookiePrefix: string;
         };
@@ -5399,6 +5516,7 @@ export declare const auth: {
                 createdAt: Date;
                 updatedAt: Date;
                 image?: string | null | undefined | undefined;
+                role: string;
             };
         };
     };
